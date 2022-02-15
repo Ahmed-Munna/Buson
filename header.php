@@ -9,7 +9,10 @@
         <link rel="manifest" href="site.webmanifest">
 		<link rel="shortcut icon" type="image/x-icon" href="<?php echo get_template_directory_uri() ?>/assets/img/favicon.ico">
 
-        <?php wp_head()?>
+        <?php 
+            wp_head();
+            global $post;
+        ?>
    </head>
 
    <body <?php body_class()?>

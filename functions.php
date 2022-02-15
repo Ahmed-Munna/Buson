@@ -22,8 +22,8 @@
         wp_enqueue_style( 'slicknav',get_theme_file_uri('/assets/css/slicknav.css'),[],'1.0.10', 'all');
         wp_enqueue_style( 'fontawesome',get_theme_file_uri('/assets/css/fontawesome-all.min.css'),[],'5.0.6', 'all');
         wp_enqueue_style( 'slick',get_theme_file_uri('/assets/css/slick.css'),[],'1.0.0', 'all');
-        wp_enqueue_style( 'style',get_theme_file_uri('/assets/css/style.css'),[],'1.0.0', 'all');
-        wp_enqueue_style( 'main-style',get_template_directory_uri(),[],'1.0.0', 'all');
+        wp_enqueue_style( 'style',get_stylesheet_directory_uri() . '/assets/css/style.css' ,[],'1.0.0', 'all');
+        wp_enqueue_style( 'main-style',get_stylesheet_directory_uri(),[],'1.0.0', 'all');
         // 	-- JS here --
         wp_enqueue_script( 'popper-js',get_theme_file_uri('/assets/js/popper.min.js'),[],'4.1.3', true);
         wp_enqueue_script( 'bootstrap-js',get_theme_file_uri('/assets/js/bootstrap.min.js'),[],'4.1.3', true);
@@ -38,6 +38,16 @@
     // Sidebar register
 
     function buson_sidebar() {
+        //main sidebar
+
+        register_sidebar( array(
+            'name'          => __( 'sidebar', 'buson' ),
+            'id'            => 'sidebar',
+            'description'   => __( 'Widgets in this area will be shown on all posts and pages.', 'buson' ),
+            'before_widget' => '<div id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</div>',
+        ) );
+
         register_sidebar( array(
             'name'          => __( 'Footer widget 1', 'buson' ),
             'id'            => 'footer-1',
@@ -284,4 +294,9 @@
         ));
         
     }
-   
+    function alter_comment_form_fields($fields){
+        unset($fields['comment_notes_before']);
+        return $fields;
+        }
+        add_filter('comment_form_default_fields','alter_comment_form_fields');
+        

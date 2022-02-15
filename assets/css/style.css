@@ -4061,7 +4061,7 @@ hr {
 }
 
 .blog_area a {
-  color: "Poppins", sans-serif !important;
+  color: black !important;
   text-decoration: none;
   transition: 0.4s;
 }
@@ -5057,6 +5057,8 @@ hr {
 .single-post-area .navigation-area .nav-right .thumb {
   margin-left: 20px;
   background: #000;
+  width: 60px;
+  height: 60px;
 }
 
 .single-post-area .navigation-area .nav-right .thumb img {
@@ -6822,4 +6824,7 @@ del {
 .services-icon img {
   width: 100%;
   margin-bottom: 25px;
+}
+li.cat-item>a {
+  color: black;
 }

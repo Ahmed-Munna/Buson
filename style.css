@@ -11,3 +11,10 @@ Text Domain: boson
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
+li.cat-item > a {
+  color: black;
+}
+img.align.wp-post-image {
+  width: 60px;
+  height: 60px;
+}
